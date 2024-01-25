@@ -27,6 +27,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
@@ -51,9 +56,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "feature/CAG-296",
+    "git-widget-placeholder": "feature/CAG-295-DiseñoAPPJavaFX",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/eliana.paniagua/Desktop/FX/demoAppJavaFX",
+    "last_opened_file_path": "C:/Users/kiara.precopio/Desktop/demoAppJavaFX/src/main/resources/images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -64,6 +69,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kiara.precopio\Desktop\demoAppJavaFX\src\main\resources\images" />
       <recent name="C:\Users\kiara.precopio\Desktop\REPOS\demoAppJavaFX\src\main\resources\images" />
     </key>
   </component>
@@ -102,11 +108,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706189298849</updated>
-      <workItem from="1706189299991" duration="7297000" />
+      <workItem from="1706189299991" duration="6294000" />
+      <workItem from="1706196635204" duration="8310000" />
+      <workItem from="1706208199126" duration="1378000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feature: diseño app" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature: diseño app" />
   </component>
 </project>
