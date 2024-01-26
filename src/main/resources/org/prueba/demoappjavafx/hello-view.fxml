@@ -163,10 +163,11 @@
                 <font>
                     <Font name="Corbel Bold" size="12.0"/>
                 </font>
+
             </Button>
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
                     style="-fx-background-color: #4b7195;" text="Confirmar" GridPane.columnIndex="4"
-                    GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
+                    GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS" onAction="#onConfirmButtonClicked">
                 <cursor>
                     <Cursor fx:constant="HAND"/>
                 </cursor>
@@ -176,7 +177,7 @@
             </Button>
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
                     style="-fx-background-color: #4b7195;" text="Confirmar" GridPane.columnIndex="3"
-                    GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
+                    GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS" onAction="#onConfirmButtonClicked">
                 <cursor>
                     <Cursor fx:constant="HAND"/>
                 </cursor>
@@ -186,7 +187,7 @@
             </Button>
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
                     style="-fx-background-color: #4b7195;" text="Confirmar" GridPane.columnIndex="2"
-                    GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
+                    GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS" onAction="#onConfirmButtonClicked">
                 <cursor>
                     <Cursor fx:constant="HAND"/>
                 </cursor>
@@ -196,7 +197,7 @@
             </Button>
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
                     style="-fx-background-color: #4b7195;" text="Confirmar" GridPane.columnIndex="1"
-                    GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
+                    GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS" onAction="#onConfirmButtonClicked">
                 <cursor>
                     <Cursor fx:constant="HAND"/>
                 </cursor>
@@ -267,6 +268,19 @@
             <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308"
                    maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #2C3032;"
                    GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS"/>
+
+            <TextField style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <TextField style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+            <TextField style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+            <TextField style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+            <TextField style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="5" GridPane.rowIndex="2"/>
+
+            <TextField style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            <TextField style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+            <TextField style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+            <TextField style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="4" GridPane.rowIndex="3"/>
+            <TextField style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="5" GridPane.rowIndex="3"/>
+
         </GridPane>
     </VBox>
 </AnchorPane>
