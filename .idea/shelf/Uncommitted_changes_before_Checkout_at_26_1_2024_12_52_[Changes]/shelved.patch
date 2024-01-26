@@ -1,0 +1,469 @@
+Index: src/main/resources/org/prueba/demoappjavafx/hello-view.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.geometry.*?>\r\n<?import javafx.scene.*?>\r\n<?import javafx.scene.control.*?>\r\n<?import javafx.scene.image.*?>\r\n<?import javafx.scene.layout.*?>\r\n<?import javafx.scene.text.*?>\r\n\r\n<AnchorPane prefHeight=\"388.0\" prefWidth=\"640.0\" style=\"-fx-background-color: #2C3032;\" xmlns=\"http://javafx.com/javafx/11.0.14-internal\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"org.prueba.demoappjavafx.HelloController\">\r\n\r\n    <VBox alignment=\"CENTER\" maxHeight=\"1.7976931348623157E308\" maxWidth=\"1.7976931348623157E308\" prefHeight=\"385.0\"\r\n          prefWidth=\"640.0\" spacing=\"20.0\" xmlns=\"http://javafx.com/javafx/11.0.14-internal\"\r\n          xmlns:fx=\"http://javafx.com/fxml/1\">\r\n        <padding>\r\n            <Insets bottom=\"20.0\" left=\"20.0\" right=\"20.0\" top=\"20.0\"/>\r\n        </padding>\r\n        <HBox fillHeight=\"false\" maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\"\r\n              prefHeight=\"148.0\" prefWidth=\"575.0\" VBox.vgrow=\"ALWAYS\">\r\n            <VBox prefHeight=\"148.0\" prefWidth=\"83.0\" HBox.hgrow=\"ALWAYS\">\r\n                <Label alignment=\"CENTER\" prefHeight=\"29.0\" prefWidth=\"67.0\" text=\"Legajo\" textFill=\"WHITE\">\r\n                    <font>\r\n                        <Font name=\"FRIZON\" size=\"12.0\"/>\r\n                    </font>\r\n                    <VBox.margin>\r\n                        <Insets right=\"3.0\"/>\r\n                    </VBox.margin>\r\n                </Label>\r\n                <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"10.0\" prefHeight=\"30.0\" prefWidth=\"67.0\"\r\n                       text=\"Nombre\" textFill=\"WHITE\">\r\n                    <font>\r\n                        <Font name=\"FRIZON\" size=\"12.0\"/>\r\n                    </font>\r\n                    <VBox.margin>\r\n                        <Insets right=\"3.0\"/>\r\n                    </VBox.margin>\r\n                </Label>\r\n                <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"27.0\" prefHeight=\"25.0\" prefWidth=\"70.0\"\r\n                       text=\"Apellido\" textFill=\"WHITE\">\r\n                    <font>\r\n                        <Font name=\"FRIZON\" size=\"12.0\"/>\r\n                    </font>\r\n                    <VBox.margin>\r\n                        <Insets right=\"3.0\"/>\r\n                    </VBox.margin>\r\n                </Label>\r\n            </VBox>\r\n\r\n            <VBox layoutX=\"10.0\" layoutY=\"10.0\" prefHeight=\"105.0\" prefWidth=\"133.0\" HBox.hgrow=\"ALWAYS\">\r\n                <padding>\r\n                    <Insets right=\"3.0\"/>\r\n                </padding>\r\n                <TextField style=\"-fx-background-color: #E7E7E7;\">\r\n                    <cursor>\r\n                        <Cursor fx:constant=\"TEXT\"/>\r\n                    </cursor>\r\n                    <VBox.margin>\r\n                        <Insets bottom=\"5.0\"/>\r\n                    </VBox.margin>\r\n                </TextField>\r\n                <TextField style=\"-fx-background-color: #E7E7E7;\">\r\n                    <cursor>\r\n                        <Cursor fx:constant=\"TEXT\"/>\r\n                    </cursor>\r\n                    <VBox.margin>\r\n                        <Insets bottom=\"5.0\"/>\r\n                    </VBox.margin>\r\n                </TextField>\r\n                <TextField layoutX=\"10.0\" layoutY=\"10.0\" style=\"-fx-background-color: #E7E7E7;\">\r\n                    <cursor>\r\n                        <Cursor fx:constant=\"TEXT\"/>\r\n                    </cursor>\r\n                </TextField>\r\n                <Button contentDisplay=\"CENTER\" mnemonicParsing=\"false\" prefHeight=\"25.0\" prefWidth=\"150.0\"\r\n                        style=\"-fx-background-color: #4b7195;\" text=\"Realizar búsqueda\">\r\n                    <VBox.margin>\r\n                        <Insets top=\"5.0\"/>\r\n                    </VBox.margin>\r\n                    <font>\r\n                        <Font name=\"Corbel Bold\" size=\"12.0\"/>\r\n                    </font>\r\n                    <cursor>\r\n                        <Cursor fx:constant=\"HAND\"/>\r\n                    </cursor>\r\n                </Button>\r\n            </VBox>\r\n            <VBox alignment=\"CENTER\" prefHeight=\"148.0\" prefWidth=\"376.0\" HBox.hgrow=\"ALWAYS\">\r\n                <ImageView fitHeight=\"150.0\" fitWidth=\"169.0\" pickOnBounds=\"true\" preserveRatio=\"true\"\r\n                           VBox.vgrow=\"ALWAYS\">\r\n                    <VBox.margin>\r\n                        <Insets left=\"15.0\"/>\r\n                    </VBox.margin>\r\n                    <Image url=\"@../../../images/logo.png\"/>\r\n                </ImageView>\r\n            </VBox>\r\n        </HBox>\r\n        <GridPane alignment=\"CENTER\" maxHeight=\"1.7976931348623157E308\" maxWidth=\"1.7976931348623157E308\"\r\n                  style=\"-fx-background-color: #E7E7E7;\" VBox.vgrow=\"ALWAYS\">\r\n            <columnConstraints>\r\n                <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"70.0\"/>\r\n                <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\"/>\r\n                <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\"/>\r\n                <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\"/>\r\n                <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\"/>\r\n                <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\"/>\r\n                <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\"/>\r\n            </columnConstraints>\r\n            <rowConstraints>\r\n                <RowConstraints minHeight=\"10.0\" prefHeight=\"30.0\" vgrow=\"SOMETIMES\"/>\r\n                <RowConstraints minHeight=\"10.0\" prefHeight=\"30.0\" vgrow=\"SOMETIMES\"/>\r\n                <RowConstraints minHeight=\"10.0\" prefHeight=\"30.0\" vgrow=\"SOMETIMES\"/>\r\n                <RowConstraints minHeight=\"10.0\" prefHeight=\"30.0\" vgrow=\"SOMETIMES\"/>\r\n                <RowConstraints minHeight=\"10.0\" prefHeight=\"30.0\" vgrow=\"SOMETIMES\"/>\r\n                <RowConstraints minHeight=\"10.0\" prefHeight=\"30.0\" vgrow=\"SOMETIMES\"/>\r\n            </rowConstraints>\r\n            <opaqueInsets>\r\n                <Insets/>\r\n            </opaqueInsets>\r\n            <cursor>\r\n                <Cursor fx:constant=\"DISAPPEAR\"/>\r\n            </cursor>\r\n            <Label alignment=\"CENTER\" maxHeight=\"1.7976931348623157E308\" maxWidth=\"1.7976931348623157E308\"\r\n                   prefHeight=\"17.0\" style=\"-fx-background-color: #498dc9;\" text=\"Fecha\" GridPane.hgrow=\"ALWAYS\"\r\n                   GridPane.vgrow=\"ALWAYS\">\r\n                <font>\r\n                    <Font name=\"HoloLens MDL2 Assets\" size=\"12.0\"/>\r\n                </font>\r\n            </Label>\r\n            <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"17.0\" maxHeight=\"1.7976931348623157E308\"\r\n                   maxWidth=\"1.7976931348623157E308\" style=\"-fx-background-color: #498dc9;\" text=\"Día\"\r\n                   GridPane.hgrow=\"ALWAYS\" GridPane.rowIndex=\"1\" GridPane.vgrow=\"ALWAYS\">\r\n                <font>\r\n                    <Font name=\"HoloLens MDL2 Assets\" size=\"12.0\"/>\r\n                </font>\r\n            </Label>\r\n            <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"40.0\" maxHeight=\"1.7976931348623157E308\"\r\n                   maxWidth=\"1.7976931348623157E308\" style=\"-fx-background-color: #498dc9;\" text=\"Hs diarias\"\r\n                   GridPane.hgrow=\"ALWAYS\" GridPane.rowIndex=\"2\" GridPane.vgrow=\"ALWAYS\">\r\n                <font>\r\n                    <Font name=\"HoloLens MDL2 Assets\" size=\"12.0\"/>\r\n                </font>\r\n            </Label>\r\n            <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"10.0\" maxHeight=\"1.7976931348623157E308\"\r\n                   maxWidth=\"1.7976931348623157E308\" style=\"-fx-background-color: #498dc9;\" text=\"Hs extras\"\r\n                   GridPane.hgrow=\"ALWAYS\" GridPane.rowIndex=\"3\" GridPane.vgrow=\"ALWAYS\">\r\n                <font>\r\n                    <Font name=\"HoloLens MDL2 Assets\" size=\"12.0\"/>\r\n                </font>\r\n            </Label>\r\n            <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"10.0\" maxHeight=\"1.7976931348623157E308\"\r\n                   maxWidth=\"1.7976931348623157E308\" style=\"-fx-background-color: #498dc9;\" text=\"Total\"\r\n                   GridPane.hgrow=\"ALWAYS\" GridPane.rowIndex=\"4\" GridPane.vgrow=\"ALWAYS\">\r\n                <font>\r\n                    <Font name=\"HoloLens MDL2 Assets\" size=\"12.0\"/>\r\n                </font>\r\n            </Label>\r\n            <Button maxHeight=\"1.7976931348623157E308\" maxWidth=\"1.7976931348623157E308\" mnemonicParsing=\"false\"\r\n                    style=\"-fx-background-color: #4b7195;\" text=\"Confirmar\" GridPane.columnIndex=\"5\"\r\n                    GridPane.hgrow=\"ALWAYS\" GridPane.rowIndex=\"5\" GridPane.vgrow=\"ALWAYS\">\r\n                <cursor>\r\n                    <Cursor fx:constant=\"HAND\"/>\r\n                </cursor>\r\n                <font>\r\n                    <Font name=\"Corbel Bold\" size=\"12.0\"/>\r\n                </font>\r\n            </Button>\r\n            <Button maxHeight=\"1.7976931348623157E308\" maxWidth=\"1.7976931348623157E308\" mnemonicParsing=\"false\"\r\n                    style=\"-fx-background-color: #4b7195;\" text=\"Confirmar\" GridPane.columnIndex=\"4\"\r\n                    GridPane.hgrow=\"ALWAYS\" GridPane.rowIndex=\"5\" GridPane.vgrow=\"ALWAYS\">\r\n                <cursor>\r\n                    <Cursor fx:constant=\"HAND\"/>\r\n                </cursor>\r\n                <font>\r\n                    <Font name=\"Corbel Bold\" size=\"12.0\"/>\r\n                </font>\r\n            </Button>\r\n            <Button maxHeight=\"1.7976931348623157E308\" maxWidth=\"1.7976931348623157E308\" mnemonicParsing=\"false\"\r\n                    style=\"-fx-background-color: #4b7195;\" text=\"Confirmar\" GridPane.columnIndex=\"3\"\r\n                    GridPane.hgrow=\"ALWAYS\" GridPane.rowIndex=\"5\" GridPane.vgrow=\"ALWAYS\">\r\n                <cursor>\r\n                    <Cursor fx:constant=\"HAND\"/>\r\n                </cursor>\r\n                <font>\r\n                    <Font name=\"Corbel Bold\" size=\"12.0\"/>\r\n                </font>\r\n            </Button>\r\n            <Button maxHeight=\"1.7976931348623157E308\" maxWidth=\"1.7976931348623157E308\" mnemonicParsing=\"false\"\r\n                    style=\"-fx-background-color: #4b7195;\" text=\"Confirmar\" GridPane.columnIndex=\"2\"\r\n                    GridPane.hgrow=\"ALWAYS\" GridPane.rowIndex=\"5\" GridPane.vgrow=\"ALWAYS\">\r\n                <cursor>\r\n                    <Cursor fx:constant=\"HAND\"/>\r\n                </cursor>\r\n                <font>\r\n                    <Font name=\"Corbel Bold\" size=\"12.0\"/>\r\n                </font>\r\n            </Button>\r\n            <Button maxHeight=\"1.7976931348623157E308\" maxWidth=\"1.7976931348623157E308\" mnemonicParsing=\"false\"\r\n                    style=\"-fx-background-color: #4b7195;\" text=\"Confirmar\" GridPane.columnIndex=\"1\"\r\n                    GridPane.hgrow=\"ALWAYS\" GridPane.rowIndex=\"5\" GridPane.vgrow=\"ALWAYS\">\r\n                <cursor>\r\n                    <Cursor fx:constant=\"HAND\"/>\r\n                </cursor>\r\n                <font>\r\n                    <Font name=\"Corbel Bold\" size=\"12.0\"/>\r\n                </font>\r\n            </Button>\r\n            <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"10.0\" maxHeight=\"1.7976931348623157E308\"\r\n                   maxWidth=\"1.7976931348623157E308\" prefHeight=\"17.0\" style=\"-fx-background-color: #498dc9;\"\r\n                   text=\"Lunes\" GridPane.columnIndex=\"1\" GridPane.hgrow=\"ALWAYS\" GridPane.rowIndex=\"1\"\r\n                   GridPane.vgrow=\"ALWAYS\">\r\n                <font>\r\n                    <Font name=\"HoloLens MDL2 Assets\" size=\"12.0\"/>\r\n                </font>\r\n            </Label>\r\n            <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"10.0\" maxHeight=\"1.7976931348623157E308\"\r\n                   maxWidth=\"1.7976931348623157E308\" prefHeight=\"17.0\" style=\"-fx-background-color: #498dc9;\"\r\n                   text=\"Martes\" GridPane.columnIndex=\"2\" GridPane.hgrow=\"ALWAYS\" GridPane.rowIndex=\"1\"\r\n                   GridPane.vgrow=\"ALWAYS\">\r\n                <font>\r\n                    <Font name=\"HoloLens MDL2 Assets\" size=\"12.0\"/>\r\n                </font>\r\n            </Label>\r\n            <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"10.0\" maxHeight=\"1.7976931348623157E308\"\r\n                   maxWidth=\"1.7976931348623157E308\" prefHeight=\"17.0\" style=\"-fx-background-color: #498dc9;\"\r\n                   text=\"Miércoles\" GridPane.columnIndex=\"3\" GridPane.hgrow=\"ALWAYS\" GridPane.rowIndex=\"1\"\r\n                   GridPane.vgrow=\"ALWAYS\">\r\n                <font>\r\n                    <Font name=\"HoloLens MDL2 Assets\" size=\"12.0\"/>\r\n                </font>\r\n            </Label>\r\n            <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"10.0\" maxHeight=\"1.7976931348623157E308\"\r\n                   maxWidth=\"1.7976931348623157E308\" prefHeight=\"17.0\" style=\"-fx-background-color: #498dc9;\"\r\n                   text=\"Jueves\" GridPane.columnIndex=\"4\" GridPane.hgrow=\"ALWAYS\" GridPane.rowIndex=\"1\"\r\n                   GridPane.vgrow=\"ALWAYS\">\r\n                <font>\r\n                    <Font name=\"HoloLens MDL2 Assets\" size=\"12.0\"/>\r\n                </font>\r\n            </Label>\r\n            <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"10.0\" maxHeight=\"1.7976931348623157E308\"\r\n                   maxWidth=\"1.7976931348623157E308\" prefHeight=\"17.0\" style=\"-fx-background-color: #498dc9;\"\r\n                   text=\"Viernes\" GridPane.columnIndex=\"5\" GridPane.hgrow=\"ALWAYS\" GridPane.rowIndex=\"1\"\r\n                   GridPane.vgrow=\"ALWAYS\">\r\n                <font>\r\n                    <Font name=\"HoloLens MDL2 Assets\" size=\"12.0\"/>\r\n                </font>\r\n            </Label>\r\n            <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"10.0\" maxHeight=\"1.7976931348623157E308\"\r\n                   maxWidth=\"1.7976931348623157E308\" prefHeight=\"17.0\" style=\"-fx-background-color: #498dc9;\"\r\n                   text=\"Total semanal\" GridPane.columnIndex=\"6\" GridPane.hgrow=\"ALWAYS\" GridPane.rowIndex=\"3\"\r\n                   GridPane.vgrow=\"ALWAYS\">\r\n                <font>\r\n                    <Font name=\"HoloLens MDL2 Assets\" size=\"12.0\"/>\r\n                </font>\r\n            </Label>\r\n            <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"10.0\" maxHeight=\"1.7976931348623157E308\"\r\n                   maxWidth=\"1.7976931348623157E308\" prefHeight=\"17.0\" style=\"-fx-background-color: #2C3032;\"\r\n                   GridPane.hgrow=\"ALWAYS\" GridPane.rowIndex=\"5\" GridPane.vgrow=\"ALWAYS\"/>\r\n            <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"157.0\" maxHeight=\"1.7976931348623157E308\"\r\n                   maxWidth=\"1.7976931348623157E308\" prefHeight=\"17.0\" style=\"-fx-background-color: #2C3032;\"\r\n                   GridPane.columnIndex=\"6\" GridPane.hgrow=\"ALWAYS\" GridPane.rowIndex=\"5\" GridPane.vgrow=\"ALWAYS\"/>\r\n            <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"10.0\" maxHeight=\"1.7976931348623157E308\"\r\n                   maxWidth=\"1.7976931348623157E308\" prefHeight=\"17.0\" style=\"-fx-background-color: #2C3032;\"\r\n                   GridPane.columnIndex=\"6\" GridPane.hgrow=\"ALWAYS\" GridPane.vgrow=\"ALWAYS\"/>\r\n            <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"157.0\" maxHeight=\"1.7976931348623157E308\"\r\n                   maxWidth=\"1.7976931348623157E308\" prefHeight=\"17.0\" style=\"-fx-background-color: #2C3032;\"\r\n                   GridPane.columnIndex=\"6\" GridPane.hgrow=\"ALWAYS\" GridPane.rowIndex=\"1\" GridPane.vgrow=\"ALWAYS\"/>\r\n            <Label alignment=\"CENTER\" layoutX=\"10.0\" layoutY=\"10.0\" maxHeight=\"1.7976931348623157E308\"\r\n                   maxWidth=\"1.7976931348623157E308\" prefHeight=\"17.0\" style=\"-fx-background-color: #2C3032;\"\r\n                   GridPane.columnIndex=\"6\" GridPane.hgrow=\"ALWAYS\" GridPane.rowIndex=\"2\" GridPane.vgrow=\"ALWAYS\"/>\r\n        </GridPane>\r\n    </VBox>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/org/prueba/demoappjavafx/hello-view.fxml b/src/main/resources/org/prueba/demoappjavafx/hello-view.fxml
+--- a/src/main/resources/org/prueba/demoappjavafx/hello-view.fxml	(revision f1b245d02bd808b26d198ac4ecd43c3e1e762ce7)
++++ b/src/main/resources/org/prueba/demoappjavafx/hello-view.fxml	(date 1706215195944)
+@@ -9,264 +9,208 @@
+ 
+ <AnchorPane prefHeight="388.0" prefWidth="640.0" style="-fx-background-color: #2C3032;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.prueba.demoappjavafx.HelloController">
+ 
+-    <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="385.0"
+-          prefWidth="640.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.14-internal"
+-          xmlns:fx="http://javafx.com/fxml/1">
++    <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="385.0" prefWidth="640.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+         <padding>
+-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
++            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+-        <HBox fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+-              prefHeight="148.0" prefWidth="575.0" VBox.vgrow="ALWAYS">
++        <HBox fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="575.0" VBox.vgrow="ALWAYS">
+             <VBox prefHeight="148.0" prefWidth="83.0" HBox.hgrow="ALWAYS">
+                 <Label alignment="CENTER" prefHeight="29.0" prefWidth="67.0" text="Legajo" textFill="WHITE">
+                     <font>
+-                        <Font name="FRIZON" size="12.0"/>
++                        <Font name="FRIZON" size="12.0" />
+                     </font>
+                     <VBox.margin>
+-                        <Insets right="3.0"/>
++                        <Insets right="3.0" />
+                     </VBox.margin>
+                 </Label>
+-                <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="67.0"
+-                       text="Nombre" textFill="WHITE">
++                <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="67.0" text="Nombre" textFill="WHITE">
+                     <font>
+-                        <Font name="FRIZON" size="12.0"/>
++                        <Font name="FRIZON" size="12.0" />
+                     </font>
+                     <VBox.margin>
+-                        <Insets right="3.0"/>
++                        <Insets right="3.0" />
+                     </VBox.margin>
+                 </Label>
+-                <Label alignment="CENTER" layoutX="10.0" layoutY="27.0" prefHeight="25.0" prefWidth="70.0"
+-                       text="Apellido" textFill="WHITE">
++                <Label alignment="CENTER" layoutX="10.0" layoutY="27.0" prefHeight="25.0" prefWidth="70.0" text="Apellido" textFill="WHITE">
+                     <font>
+-                        <Font name="FRIZON" size="12.0"/>
++                        <Font name="FRIZON" size="12.0" />
+                     </font>
+                     <VBox.margin>
+-                        <Insets right="3.0"/>
++                        <Insets right="3.0" />
+                     </VBox.margin>
+                 </Label>
+             </VBox>
+ 
+             <VBox layoutX="10.0" layoutY="10.0" prefHeight="105.0" prefWidth="133.0" HBox.hgrow="ALWAYS">
+                 <padding>
+-                    <Insets right="3.0"/>
++                    <Insets right="3.0" />
+                 </padding>
+                 <TextField style="-fx-background-color: #E7E7E7;">
+                     <cursor>
+-                        <Cursor fx:constant="TEXT"/>
++                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                     <VBox.margin>
+-                        <Insets bottom="5.0"/>
++                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                 </TextField>
+                 <TextField style="-fx-background-color: #E7E7E7;">
+                     <cursor>
+-                        <Cursor fx:constant="TEXT"/>
++                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                     <VBox.margin>
+-                        <Insets bottom="5.0"/>
++                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                 </TextField>
+                 <TextField layoutX="10.0" layoutY="10.0" style="-fx-background-color: #E7E7E7;">
+                     <cursor>
+-                        <Cursor fx:constant="TEXT"/>
++                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                 </TextField>
+-                <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0"
+-                        style="-fx-background-color: #4b7195;" text="Realizar búsqueda">
++                <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #4b7195;" text="Realizar búsqueda">
+                     <VBox.margin>
+-                        <Insets top="5.0"/>
++                        <Insets top="5.0" />
+                     </VBox.margin>
+                     <font>
+-                        <Font name="Corbel Bold" size="12.0"/>
++                        <Font name="Corbel Bold" size="12.0" />
+                     </font>
+                     <cursor>
+-                        <Cursor fx:constant="HAND"/>
++                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                 </Button>
+             </VBox>
+             <VBox alignment="CENTER" prefHeight="148.0" prefWidth="376.0" HBox.hgrow="ALWAYS">
+-                <ImageView fitHeight="150.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true"
+-                           VBox.vgrow="ALWAYS">
++                <ImageView fitHeight="150.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+-                        <Insets left="15.0"/>
++                        <Insets left="15.0" />
+                     </VBox.margin>
+-                    <Image url="@../../../images/logo.png"/>
++                    <Image url="@../../../images/logo.png" />
+                 </ImageView>
+             </VBox>
+         </HBox>
+-        <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+-                  style="-fx-background-color: #E7E7E7;" VBox.vgrow="ALWAYS">
++        <GridPane fx:id="gridPane" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #E7E7E7;" VBox.vgrow="ALWAYS">
+             <columnConstraints>
+-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0"/>
+-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
++                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
++                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
++                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
++                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
++                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
++                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
++                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+             </columnConstraints>
+             <rowConstraints>
+-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
++                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+             </rowConstraints>
+             <opaqueInsets>
+-                <Insets/>
++                <Insets />
+             </opaqueInsets>
+             <cursor>
+-                <Cursor fx:constant="DISAPPEAR"/>
++                <Cursor fx:constant="DISAPPEAR" />
+             </cursor>
+-            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+-                   prefHeight="17.0" style="-fx-background-color: #498dc9;" text="Fecha" GridPane.hgrow="ALWAYS"
+-                   GridPane.vgrow="ALWAYS">
++            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #498dc9;" text="Fecha" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                 <font>
+-                    <Font name="HoloLens MDL2 Assets" size="12.0"/>
++                    <Font name="HoloLens MDL2 Assets" size="12.0" />
+                 </font>
+             </Label>
+-            <Label alignment="CENTER" layoutX="10.0" layoutY="17.0" maxHeight="1.7976931348623157E308"
+-                   maxWidth="1.7976931348623157E308" style="-fx-background-color: #498dc9;" text="Día"
+-                   GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
++            <Label alignment="CENTER" layoutX="10.0" layoutY="17.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #498dc9;" text="Día" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                 <font>
+-                    <Font name="HoloLens MDL2 Assets" size="12.0"/>
++                    <Font name="HoloLens MDL2 Assets" size="12.0" />
+                 </font>
+             </Label>
+-            <Label alignment="CENTER" layoutX="10.0" layoutY="40.0" maxHeight="1.7976931348623157E308"
+-                   maxWidth="1.7976931348623157E308" style="-fx-background-color: #498dc9;" text="Hs diarias"
+-                   GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
++            <Label alignment="CENTER" layoutX="10.0" layoutY="40.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #498dc9;" text="Hs diarias" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+                 <font>
+-                    <Font name="HoloLens MDL2 Assets" size="12.0"/>
++                    <Font name="HoloLens MDL2 Assets" size="12.0" />
+                 </font>
+             </Label>
+-            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308"
+-                   maxWidth="1.7976931348623157E308" style="-fx-background-color: #498dc9;" text="Hs extras"
+-                   GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
++            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #498dc9;" text="Hs extras" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
+                 <font>
+-                    <Font name="HoloLens MDL2 Assets" size="12.0"/>
++                    <Font name="HoloLens MDL2 Assets" size="12.0" />
+                 </font>
+             </Label>
+-            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308"
+-                   maxWidth="1.7976931348623157E308" style="-fx-background-color: #498dc9;" text="Total"
+-                   GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS">
++            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #498dc9;" text="Total" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS">
+                 <font>
+-                    <Font name="HoloLens MDL2 Assets" size="12.0"/>
++                    <Font name="HoloLens MDL2 Assets" size="12.0" />
+                 </font>
+             </Label>
+-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+-                    style="-fx-background-color: #4b7195;" text="Confirmar" GridPane.columnIndex="5"
+-                    GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
++            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #4b7195;" text="Confirmar" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
+                 <cursor>
+-                    <Cursor fx:constant="HAND"/>
++                    <Cursor fx:constant="HAND" />
+                 </cursor>
+                 <font>
+-                    <Font name="Corbel Bold" size="12.0"/>
++                    <Font name="Corbel Bold" size="12.0" />
+                 </font>
+             </Button>
+-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+-                    style="-fx-background-color: #4b7195;" text="Confirmar" GridPane.columnIndex="4"
+-                    GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
++            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #4b7195;" text="Confirmar" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
+                 <cursor>
+-                    <Cursor fx:constant="HAND"/>
++                    <Cursor fx:constant="HAND" />
+                 </cursor>
+                 <font>
+-                    <Font name="Corbel Bold" size="12.0"/>
++                    <Font name="Corbel Bold" size="12.0" />
+                 </font>
+             </Button>
+-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+-                    style="-fx-background-color: #4b7195;" text="Confirmar" GridPane.columnIndex="3"
+-                    GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
++            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #4b7195;" text="Confirmar" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
+                 <cursor>
+-                    <Cursor fx:constant="HAND"/>
++                    <Cursor fx:constant="HAND" />
+                 </cursor>
+                 <font>
+-                    <Font name="Corbel Bold" size="12.0"/>
++                    <Font name="Corbel Bold" size="12.0" />
+                 </font>
+             </Button>
+-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+-                    style="-fx-background-color: #4b7195;" text="Confirmar" GridPane.columnIndex="2"
+-                    GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
++            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #4b7195;" text="Confirmar" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
+                 <cursor>
+-                    <Cursor fx:constant="HAND"/>
++                    <Cursor fx:constant="HAND" />
+                 </cursor>
+                 <font>
+-                    <Font name="Corbel Bold" size="12.0"/>
++                    <Font name="Corbel Bold" size="12.0" />
+                 </font>
+             </Button>
+-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+-                    style="-fx-background-color: #4b7195;" text="Confirmar" GridPane.columnIndex="1"
+-                    GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
++            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #4b7195;" text="Confirmar" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
+                 <cursor>
+-                    <Cursor fx:constant="HAND"/>
++                    <Cursor fx:constant="HAND" />
+                 </cursor>
+                 <font>
+-                    <Font name="Corbel Bold" size="12.0"/>
++                    <Font name="Corbel Bold" size="12.0" />
+                 </font>
+             </Button>
+-            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308"
+-                   maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #498dc9;"
+-                   text="Lunes" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"
+-                   GridPane.vgrow="ALWAYS">
++            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #498dc9;" text="Lunes" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                 <font>
+-                    <Font name="HoloLens MDL2 Assets" size="12.0"/>
++                    <Font name="HoloLens MDL2 Assets" size="12.0" />
+                 </font>
+             </Label>
+-            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308"
+-                   maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #498dc9;"
+-                   text="Martes" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"
+-                   GridPane.vgrow="ALWAYS">
++            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #498dc9;" text="Martes" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                 <font>
+-                    <Font name="HoloLens MDL2 Assets" size="12.0"/>
++                    <Font name="HoloLens MDL2 Assets" size="12.0" />
+                 </font>
+             </Label>
+-            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308"
+-                   maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #498dc9;"
+-                   text="Miércoles" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"
+-                   GridPane.vgrow="ALWAYS">
++            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #498dc9;" text="Miércoles" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                 <font>
+-                    <Font name="HoloLens MDL2 Assets" size="12.0"/>
++                    <Font name="HoloLens MDL2 Assets" size="12.0" />
+                 </font>
+             </Label>
+-            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308"
+-                   maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #498dc9;"
+-                   text="Jueves" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"
+-                   GridPane.vgrow="ALWAYS">
++            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #498dc9;" text="Jueves" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                 <font>
+-                    <Font name="HoloLens MDL2 Assets" size="12.0"/>
++                    <Font name="HoloLens MDL2 Assets" size="12.0" />
+                 </font>
+             </Label>
+-            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308"
+-                   maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #498dc9;"
+-                   text="Viernes" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"
+-                   GridPane.vgrow="ALWAYS">
++            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #498dc9;" text="Viernes" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                 <font>
+-                    <Font name="HoloLens MDL2 Assets" size="12.0"/>
++                    <Font name="HoloLens MDL2 Assets" size="12.0" />
+                 </font>
+             </Label>
+-            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308"
+-                   maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #498dc9;"
+-                   text="Total semanal" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3"
+-                   GridPane.vgrow="ALWAYS">
++            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #498dc9;" text="Total semanal" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
+                 <font>
+-                    <Font name="HoloLens MDL2 Assets" size="12.0"/>
++                    <Font name="HoloLens MDL2 Assets" size="12.0" />
+                 </font>
+             </Label>
+-            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308"
+-                   maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #2C3032;"
+-                   GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS"/>
+-            <Label alignment="CENTER" layoutX="10.0" layoutY="157.0" maxHeight="1.7976931348623157E308"
+-                   maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #2C3032;"
+-                   GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS"/>
+-            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308"
+-                   maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #2C3032;"
+-                   GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS"/>
+-            <Label alignment="CENTER" layoutX="10.0" layoutY="157.0" maxHeight="1.7976931348623157E308"
+-                   maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #2C3032;"
+-                   GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS"/>
+-            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308"
+-                   maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #2C3032;"
+-                   GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS"/>
++            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #2C3032;" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS" />
++            <Label alignment="CENTER" layoutX="10.0" layoutY="157.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #2C3032;" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS" />
++            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #2C3032;" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
++            <Label alignment="CENTER" layoutX="10.0" layoutY="157.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #2C3032;" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
++            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #2C3032;" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
+         </GridPane>
+     </VBox>
+ </AnchorPane>
+Index: src/main/java/org/prueba/demoappjavafx/HelloApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.prueba.demoappjavafx;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.image.Image;\r\nimport javafx.stage.Stage;\r\n\r\nimport java.io.IOException;\r\nimport java.time.LocalDate;\r\nimport java.time.format.DateTimeFormatter;\r\npublic class HelloApplication extends Application {\r\n    @Override\r\n    public void start(Stage stage) throws IOException {\r\n        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(\"hello-view.fxml\"));\r\n        Scene scene = new Scene(fxmlLoader.load());\r\n\r\n        String iconPath = \"/images/icon.png\";\r\n        Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream(iconPath)));\r\n        stage.getIcons().add(icon);\r\n\r\n        stage.setTitle(\"Verificación de carga de horas - ELDAR SRL\");\r\n        stage.setResizable(false);\r\n        stage.setScene(scene);\r\n        stage.show();\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/prueba/demoappjavafx/HelloApplication.java b/src/main/java/org/prueba/demoappjavafx/HelloApplication.java
+--- a/src/main/java/org/prueba/demoappjavafx/HelloApplication.java	(revision f1b245d02bd808b26d198ac4ecd43c3e1e762ce7)
++++ b/src/main/java/org/prueba/demoappjavafx/HelloApplication.java	(date 1706215228316)
+@@ -9,6 +9,8 @@
+ import java.io.IOException;
+ import java.time.LocalDate;
+ import java.time.format.DateTimeFormatter;
++import java.util.Objects;
++
+ public class HelloApplication extends Application {
+     @Override
+     public void start(Stage stage) throws IOException {
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"792b37bd-7a62-43e5-9150-9db01df58c9a\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/.gitignore\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/encodings.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/mvnw\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/mvnw.cmd\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/module-info.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/prueba/demoappjavafx/HelloApplication.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/prueba/demoappjavafx/HelloController.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/images/logo.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/org/prueba/demoappjavafx/hello-view.fxml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHome\" value=\"Use Maven wrapper\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 2\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2bRsbB0BpwiWkPZn1LGCrQPiwPn\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.HelloApplication.executor\": \"Run\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"git-widget-placeholder\": \"feature/CAG-295-DiseñoAPPJavaFX\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/kiara.precopio/Desktop/demoAppJavaFX/src/main/resources/images\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\kiara.precopio\\Desktop\\demoAppJavaFX\\src\\main\\resources\\images\" />\r\n      <recent name=\"C:\\Users\\kiara.precopio\\Desktop\\REPOS\\demoAppJavaFX\\src\\main\\resources\\images\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"HelloApplication\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"org.prueba.demoappjavafx.HelloApplication\" />\r\n      <module name=\"demoAppJavaFX\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"org.prueba.demoappjavafx.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.HelloApplication\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-17.0.9-corretto-17.0.9-4caba194b151-107bc6b7\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"792b37bd-7a62-43e5-9150-9db01df58c9a\" name=\"Changes\" comment=\"\" />\r\n      <created>1706189298849</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1706189298849</updated>\r\n      <workItem from=\"1706189299991\" duration=\"6294000\" />\r\n      <workItem from=\"1706196635204\" duration=\"8310000\" />\r\n      <workItem from=\"1706208199126\" duration=\"1378000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"feature: diseño app\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"feature: diseño app\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision f1b245d02bd808b26d198ac4ecd43c3e1e762ce7)
++++ b/.idea/workspace.xml	(date 1706284217736)
+@@ -5,21 +5,10 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="792b37bd-7a62-43e5-9150-9db01df58c9a" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/prueba/demoappjavafx/HelloApplication.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/prueba/demoappjavafx/HelloController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/logo.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/prueba/demoappjavafx/hello-view.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_1_2024_15_47__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_1_2024_15_47__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/prueba/demoappjavafx/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/prueba/demoappjavafx/HelloApplication.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/org/prueba/demoappjavafx/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/prueba/demoappjavafx/hello-view.fxml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -29,7 +18,7 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="master" />
++        <entry key="$PROJECT_DIR$" value="feature/CAG-295-DiseñoAPPJavaFX" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -50,23 +39,23 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Application.HelloApplication.executor": "Run",
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "git-widget-placeholder": "feature/CAG-295-DiseñoAPPJavaFX",
+-    "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "C:/Users/kiara.precopio/Desktop/demoAppJavaFX/src/main/resources/images",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;feature/CAG-297-AppCargaHorasV1&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/kiara.precopio/Desktop/demoAppJavaFX/src/main/resources/images&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\Users\kiara.precopio\Desktop\demoAppJavaFX\src\main\resources\images" />
+@@ -111,6 +100,7 @@
+       <workItem from="1706189299991" duration="6294000" />
+       <workItem from="1706196635204" duration="8310000" />
+       <workItem from="1706208199126" duration="1378000" />
++      <workItem from="1706283871268" duration="344000" />
+     </task>
+     <servers />
+   </component>

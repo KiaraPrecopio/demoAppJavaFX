@@ -1,0 +1,220 @@
+Index: src/main/java/org/prueba/demoappjavafx/HelloController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.prueba.demoappjavafx;\r\n\r\nimport javafx.fxml.FXML;\r\nimport javafx.geometry.Pos;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.layout.GridPane;\r\n\r\nimport java.time.DayOfWeek;\r\nimport java.time.LocalDate;\r\nimport java.time.format.DateTimeFormatter;\r\n\r\npublic class HelloController {\r\n\r\n    @FXML\r\n    private GridPane gridPane;\r\n\r\n    public void initialize() {\r\n        if (gridPane != null) {\r\n            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(\"dd/MM/yyyy\");\r\n            LocalDate currentDate = LocalDate.now();\r\n\r\n            LocalDate startOfWeek = getFirstDayOfWeek(currentDate);\r\n\r\n            for (int i = 0; i < 5; i++) {\r\n                Label label = createFormattedLabel(startOfWeek, formatter);\r\n                gridPane.add(label, i + 1, 0);\r\n                startOfWeek = startOfWeek.plusDays(1);\r\n            }\r\n        } else {\r\n            handleNullGridPane();\r\n        }\r\n    }\r\n\r\n    private LocalDate getFirstDayOfWeek(LocalDate currentDate) {\r\n        LocalDate startOfWeek = currentDate;\r\n        while (startOfWeek.getDayOfWeek() != DayOfWeek.MONDAY) {\r\n            startOfWeek = startOfWeek.minusDays(1);\r\n        }\r\n        return startOfWeek;\r\n    }\r\n\r\n    private Label createFormattedLabel(LocalDate date, DateTimeFormatter formatter) {\r\n        Label label = new Label(date.format(formatter));\r\n        label.setAlignment(Pos.CENTER);\r\n        return label;\r\n    }\r\n\r\n    private void handleNullGridPane() {\r\n        System.err.println(\"gridPane is null. Make sure it is properly initialized or injected.\");\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/prueba/demoappjavafx/HelloController.java b/src/main/java/org/prueba/demoappjavafx/HelloController.java
+--- a/src/main/java/org/prueba/demoappjavafx/HelloController.java	(revision f1b245d02bd808b26d198ac4ecd43c3e1e762ce7)
++++ b/src/main/java/org/prueba/demoappjavafx/HelloController.java	(date 1706289721714)
+@@ -2,15 +2,24 @@
+ 
+ import javafx.fxml.FXML;
+ import javafx.geometry.Pos;
++import javafx.scene.Node;
+ import javafx.scene.control.Label;
++import javafx.scene.control.TextField;
+ import javafx.scene.layout.GridPane;
+ 
+ import java.time.DayOfWeek;
+ import java.time.LocalDate;
+ import java.time.format.DateTimeFormatter;
++import java.util.List;
+ 
+ public class HelloController {
+ 
++    private static final int NUM_COLUMNS = 5;
++    private static final int NUM_ROWS = 4;
++    private static final int COL_TOTAL_WEEKLY = 6;
++    private static final int ROW_TOTAL_WEEKLY = 4;
++    private static final int ROW_TOTAL = 4;
++
+     @FXML
+     private GridPane gridPane;
+ 
+@@ -21,11 +30,20 @@
+ 
+             LocalDate startOfWeek = getFirstDayOfWeek(currentDate);
+ 
+-            for (int i = 0; i < 5; i++) {
++            for (int i = 0; i < NUM_COLUMNS; i++) {
+                 Label label = createFormattedLabel(startOfWeek, formatter);
+                 gridPane.add(label, i + 1, 0);
+                 startOfWeek = startOfWeek.plusDays(1);
+             }
++
++            // Añadir TextFields vacíos en la fila "TOTAL"
++            for (int i = 1; i <= NUM_COLUMNS; i++) {
++                gridPane.add(createEmptyTextField(), i, ROW_TOTAL);
++            }
++
++            // Añadir TextField vacío para "TOTAL SEMANAL"
++            gridPane.add(createEmptyTextField(), COL_TOTAL_WEEKLY, ROW_TOTAL_WEEKLY);
++
+         } else {
+             handleNullGridPane();
+         }
+@@ -45,7 +63,76 @@
+         return label;
+     }
+ 
++    // Método para crear un TextField vacío
++    private TextField createEmptyTextField() {
++        TextField textField = new TextField();
++        textField.setAlignment(Pos.CENTER);
++        return textField;
++    }
++
++    @FXML
++    private void onConfirmButtonClicked() {
++        // Sumar columnas y actualizar los valores en "TOTAL" y "TOTAL SEMANAL"
++        sumColumnsAndUpdateTotals();
++    }
++
++    private void sumColumnsAndUpdateTotals() {
++        double totalWeekly = 0;
++
++        for (int col = 1; col <= NUM_COLUMNS; col++) {
++            double totalColumn = sumColumn(col, 1, NUM_ROWS - 1);
++            setTextFieldValue(col, ROW_TOTAL, String.valueOf(totalColumn));
++
++            // Acumular el total semanal
++            totalWeekly += totalColumn;
++        }
++
++        // Actualizar el valor en "TOTAL SEMANAL"
++        setTextFieldValue(COL_TOTAL_WEEKLY, ROW_TOTAL_WEEKLY, String.valueOf(totalWeekly));
++    }
++
++    private void setTextFieldValue(int col, int row, String value) {
++        TextField textField = getTextField(col, row);
++        if (textField != null) {
++            textField.setText(value);
++        }
++    }
++
++    private double sumColumn(int col, int startRow, int endRow) {
++        double total = 0;
++
++        for (int row = startRow; row <= endRow; row++) {
++            TextField textField = getTextField(col, row);
++
++            if (textField != null && !textField.getText().isEmpty()) {
++                try {
++                    total += Double.parseDouble(textField.getText());
++                } catch (NumberFormatException e) {
++                    handleNumberFormatError(col, row);
++                }
++            }
++        }
++
++        return total;
++    }
++
++    private TextField getTextField(int col, int row) {
++        List<Node> textFields = gridPane.getChildren().filtered(node ->
++                GridPane.getColumnIndex(node) != null &&
++                        GridPane.getRowIndex(node) != null &&
++                        GridPane.getColumnIndex(node) == col &&
++                        GridPane.getRowIndex(node) == row &&
++                        node instanceof TextField);
++
++        return textFields.isEmpty() ? null : (TextField) textFields.get(0);
++    }
++
+     private void handleNullGridPane() {
+-        System.err.println("gridPane is null. Make sure it is properly initialized or injected.");
++        throw new IllegalStateException("gridPane is null. Make sure it is properly initialized or injected.");
+     }
++
++    private void handleNumberFormatError(int col, int row) {
++        throw new NumberFormatException("Error de formato en el TextField en la columna " + col + ", fila " + row);
++    }
++
+ }
+\ No newline at end of file
+Index: src/main/java/org/prueba/demoappjavafx/HelloApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.prueba.demoappjavafx;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.image.Image;\r\nimport javafx.stage.Stage;\r\n\r\nimport java.io.IOException;\r\nimport java.time.LocalDate;\r\nimport java.time.format.DateTimeFormatter;\r\npublic class HelloApplication extends Application {\r\n    @Override\r\n    public void start(Stage stage) throws IOException {\r\n        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(\"hello-view.fxml\"));\r\n        Scene scene = new Scene(fxmlLoader.load());\r\n\r\n        String iconPath = \"/images/icon.png\";\r\n        Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream(iconPath)));\r\n        stage.getIcons().add(icon);\r\n\r\n        stage.setTitle(\"Verificación de carga de horas - ELDAR SRL\");\r\n        stage.setResizable(false);\r\n        stage.setScene(scene);\r\n        stage.show();\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/prueba/demoappjavafx/HelloApplication.java b/src/main/java/org/prueba/demoappjavafx/HelloApplication.java
+--- a/src/main/java/org/prueba/demoappjavafx/HelloApplication.java	(revision f1b245d02bd808b26d198ac4ecd43c3e1e762ce7)
++++ b/src/main/java/org/prueba/demoappjavafx/HelloApplication.java	(date 1706289866924)
+@@ -7,8 +7,8 @@
+ import javafx.stage.Stage;
+ 
+ import java.io.IOException;
+-import java.time.LocalDate;
+-import java.time.format.DateTimeFormatter;
++import java.util.Objects;
++
+ public class HelloApplication extends Application {
+     @Override
+     public void start(Stage stage) throws IOException {
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"792b37bd-7a62-43e5-9150-9db01df58c9a\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/.gitignore\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/encodings.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/mvnw\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/mvnw.cmd\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/module-info.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/prueba/demoappjavafx/HelloApplication.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/prueba/demoappjavafx/HelloController.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/images/logo.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/org/prueba/demoappjavafx/hello-view.fxml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHome\" value=\"Use Maven wrapper\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 2\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2bRsbB0BpwiWkPZn1LGCrQPiwPn\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.HelloApplication.executor\": \"Run\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"git-widget-placeholder\": \"feature/CAG-295-DiseñoAPPJavaFX\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/kiara.precopio/Desktop/demoAppJavaFX/src/main/resources/images\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\kiara.precopio\\Desktop\\demoAppJavaFX\\src\\main\\resources\\images\" />\r\n      <recent name=\"C:\\Users\\kiara.precopio\\Desktop\\REPOS\\demoAppJavaFX\\src\\main\\resources\\images\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"HelloApplication\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"org.prueba.demoappjavafx.HelloApplication\" />\r\n      <module name=\"demoAppJavaFX\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"org.prueba.demoappjavafx.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.HelloApplication\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-17.0.9-corretto-17.0.9-4caba194b151-107bc6b7\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"792b37bd-7a62-43e5-9150-9db01df58c9a\" name=\"Changes\" comment=\"\" />\r\n      <created>1706189298849</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1706189298849</updated>\r\n      <workItem from=\"1706189299991\" duration=\"6294000\" />\r\n      <workItem from=\"1706196635204\" duration=\"8310000\" />\r\n      <workItem from=\"1706208199126\" duration=\"1378000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"feature: diseño app\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"feature: diseño app\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision f1b245d02bd808b26d198ac4ecd43c3e1e762ce7)
++++ b/.idea/workspace.xml	(date 1706289802693)
+@@ -5,21 +5,10 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="792b37bd-7a62-43e5-9150-9db01df58c9a" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/prueba/demoappjavafx/HelloApplication.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/prueba/demoappjavafx/HelloController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/logo.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/prueba/demoappjavafx/hello-view.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_1_2024_15_47__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_1_2024_15_47__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/prueba/demoappjavafx/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/prueba/demoappjavafx/HelloApplication.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/prueba/demoappjavafx/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/prueba/demoappjavafx/HelloController.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -29,7 +18,7 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="master" />
++        <entry key="$PROJECT_DIR$" value="feature/298-ConfiguracionBotones" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -56,7 +45,7 @@
+     "RunOnceActivity.OpenProjectViewOnStart": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "git-widget-placeholder": "feature/CAG-295-DiseñoAPPJavaFX",
++    "git-widget-placeholder": "feature/CAG-297-AppCargaHorasV1",
+     "kotlin-language-version-configured": "true",
+     "last_opened_file_path": "C:/Users/kiara.precopio/Desktop/demoAppJavaFX/src/main/resources/images",
+     "node.js.detected.package.eslint": "true",
+@@ -89,6 +78,8 @@
+     </configuration>
+     <recent_temporary>
+       <list>
++        <item itemvalue="Application.HelloApplication" />
++        <item itemvalue="Application.HelloApplication" />
+         <item itemvalue="Application.HelloApplication" />
+       </list>
+     </recent_temporary>
