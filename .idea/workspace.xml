@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="792b37bd-7a62-43e5-9150-9db01df58c9a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/prueba/demoappjavafx/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/prueba/demoappjavafx/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/prueba/demoappjavafx/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/prueba/demoappjavafx/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,6 +83,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
         <option value="jdk-17.0.9-corretto-17.0.9-4caba194b151-107bc6b7" />
       </set>
     </attachedChunks>
@@ -100,7 +100,8 @@
       <workItem from="1706196635204" duration="8310000" />
       <workItem from="1706208199126" duration="1378000" />
       <workItem from="1706291233905" duration="3196000" />
-      <workItem from="1706533189106" duration="5779000" />
+      <workItem from="1706533189106" duration="6059000" />
+      <workItem from="1706539484402" duration="1184000" />
     </task>
     <servers />
   </component>

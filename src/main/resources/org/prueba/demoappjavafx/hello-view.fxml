@@ -16,25 +16,16 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
         </padding>
         <HBox fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="575.0" VBox.vgrow="ALWAYS">
-            <VBox prefHeight="148.0" prefWidth="96.0" HBox.hgrow="ALWAYS">
-                <Label alignment="CENTER" prefHeight="29.0" prefWidth="94.0" text="ProyecTO" textFill="WHITE">
+            <VBox prefHeight="148.0" prefWidth="111.0" HBox.hgrow="ALWAYS">
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="193.0" text="ProyecTO a cargar" textFill="WHITE">
                     <font>
                         <Font name="FRIZON" size="12.0" />
                     </font>
                     <VBox.margin>
-                        <Insets right="5.0" />
+                        <Insets />
                     </VBox.margin>
                 </Label>
-            <HBox.margin>
-               <Insets left="-10.0" />
-            </HBox.margin>
-            </VBox>
-
-            <VBox layoutX="10.0" layoutY="10.0" prefHeight="105.0" prefWidth="133.0" HBox.hgrow="ALWAYS">
-                <padding>
-                    <Insets right="3.0" />
-                </padding>
-                <ComboBox prefHeight="25.0" prefWidth="160.0" promptText="Seleccionar proyecto" VBox.vgrow="ALWAYS">
+                <ComboBox prefHeight="25.0" prefWidth="204.0" promptText="Seleccionar proyecto">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="Proyecto 1" />
@@ -44,11 +35,16 @@
                             <String fx:value="Proyecto 5" />
                         </FXCollections>
                     </items>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </ComboBox>
-
+            <HBox.margin>
+               <Insets left="-10.0" />
+            </HBox.margin>
             </VBox>
             <VBox alignment="CENTER" prefHeight="150.0" prefWidth="151.0" HBox.hgrow="ALWAYS">
-                <ImageView fitHeight="127.0" fitWidth="136.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+                <ImageView fitHeight="114.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
                     <VBox.margin>
                         <Insets />
                     </VBox.margin>
@@ -60,6 +56,9 @@
                     <VBox.margin>
                         <Insets left="5.0" />
                     </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </DatePicker>
             </VBox>
         </HBox>
@@ -120,9 +119,47 @@
             </Label>
 
             <TextField style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <TextField layoutX="149.0" layoutY="70.0" style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
             <TextField style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-         <ComboBox prefHeight="25.0" prefWidth="354.0" promptText="Seleccionar rango horario" visibleRowCount="3" GridPane.columnIndex="2" GridPane.rowIndex="3">
+         <Label alignment="CENTER" layoutX="149.0" layoutY="39.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #2C3032;" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <font>
+               <Font name="HoloLens MDL2 Assets" size="12.0" />
+            </font>
+         </Label>
+         <Label alignment="CENTER" layoutX="340.0" layoutY="157.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #2C3032;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <font>
+               <Font name="HoloLens MDL2 Assets" size="12.0" />
+            </font>
+         </Label>
+         <Label alignment="CENTER" layoutX="340.0" layoutY="157.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #2C3032;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <font>
+               <Font name="HoloLens MDL2 Assets" size="12.0" />
+            </font>
+         </Label>
+         <Label alignment="CENTER" layoutX="340.0" layoutY="39.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #2C3032;" GridPane.columnIndex="2">
+            <font>
+               <Font name="HoloLens MDL2 Assets" size="12.0" />
+            </font>
+         </Label>
+         <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="25.0" prefWidth="249.0" style="-fx-background-color: #4c82b3;" text="Confirmar horas" GridPane.columnIndex="2">
+            <GridPane.margin>
+               <Insets left="40.0" top="50.0" />
+            </GridPane.margin>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor></Button>
+         <TextField layoutX="149.0" layoutY="100.0" prefHeight="54.0" prefWidth="311.0" promptText="Comentarios" style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS">
+            <cursor>
+               <Cursor fx:constant="TEXT" />
+            </cursor>
+         </TextField>
+         <Label alignment="CENTER" layoutX="340.0" layoutY="68.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #2C3032;" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <font>
+               <Font name="HoloLens MDL2 Assets" size="12.0" />
+            </font>
+         </Label>
+         <ComboBox prefHeight="0.0" prefWidth="182.0" promptText="Seleccionar rango horario" visibleRowCount="3" GridPane.columnIndex="2" GridPane.rowIndex="3">
             <items>
                <FXCollections fx:factory="observableArrayList">
                   <String fx:value="06 - 09" />
@@ -130,8 +167,13 @@
                   <String fx:value="21 - 06" />
                </FXCollections>
             </items>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+            <GridPane.margin>
+               <Insets left="5.0" />
+            </GridPane.margin>
             </ComboBox>
-         <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="23.0" prefWidth="311.0" style="-fx-background-color: #4c82b3;" text="Confirmar horas" GridPane.columnIndex="2" GridPane.rowIndex="5" />
         </GridPane>
     </VBox>
 </AnchorPane>
