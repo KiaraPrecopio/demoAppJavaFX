@@ -19,7 +19,7 @@ public class HelloApplication extends Application {
         Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream(iconPath)));
         stage.getIcons().add(icon);
 
-        stage.setTitle("Verificación de carga de horas - ELDAR SRL");
+        stage.setTitle("CRONO ELDAR - Carga de horas");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
