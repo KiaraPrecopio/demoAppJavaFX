@@ -1,29 +1,66 @@
 package org.prueba.demoappjavafx;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
 import java.time.temporal.TemporalAdjusters;
-import java.util.List;
+import java.util.Locale;
 
 public class HelloController {
 
     @FXML
     private DatePicker datePicker;
 
+    @FXML
+    private GridPane gridPane;
+
+    private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
     public void initialize() {
         datePicker.setDayCellFactory(createDayCellFactory());
+        setupDatePickerListener();
     }
+
+    private void setupDatePickerListener() {
+        datePicker.valueProperty().addListener(new ChangeListener<LocalDate>() {
+            @Override
+            public void changed(ObservableValue<? extends LocalDate> observable, LocalDate oldValue, LocalDate newValue) {
+                updateGridPaneWithSelectedDate(newValue);
+            }
+        });
+    }
+
+    private void updateGridPaneWithSelectedDate(LocalDate newDate) {
+        int columnIndex = 1;
+        int rowIndex = 1;
+
+        Label labelToUpdate = (Label) gridPane.getChildren().stream()
+                .filter(node -> GridPane.getColumnIndex(node) != null && GridPane.getColumnIndex(node) == columnIndex
+                        && GridPane.getRowIndex(node) != null && GridPane.getRowIndex(node) == rowIndex)
+                .findFirst()
+                .orElse(null);
+
+        if (labelToUpdate != null) {
+            String formattedDate = newDate.format(dateFormatter);
+
+            String dayOfWeek = newDate.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.getDefault());
+
+            String labelText = dayOfWeek + " - " + formattedDate;
+
+            labelToUpdate.setText(labelText);
+        }
+    }
+
     private Callback<DatePicker, DateCell> createDayCellFactory() {
         return datePicker -> new DateCell() {
             @Override
@@ -35,7 +72,6 @@ public class HelloController {
                     LocalDate startOfWeek = currentDate.with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
                     LocalDate endOfWeek = currentDate.with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY));
 
-                    // Personalizar la apariencia de los días de la semana actual
                     if (item.isAfter(startOfWeek.minusDays(1)) && item.isBefore(endOfWeek.plusDays(1))) {
                         setStyle("-fx-background-color: lightblue;");
                     }
@@ -43,6 +79,13 @@ public class HelloController {
             }
         };
     }
+}
+
+
+
+
+
+
 /*
     private static final int NUM_COLUMNS = 5;
     private static final int NUM_ROWS = 4;
@@ -165,4 +208,3 @@ public class HelloController {
         throw new NumberFormatException("Error de formato en el TextField en la columna " + col + ", fila " + row);
     }
 */
-}
