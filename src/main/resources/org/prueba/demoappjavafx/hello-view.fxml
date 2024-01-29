@@ -59,6 +59,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+
                 </DatePicker>
             </VBox>
         </HBox>
@@ -162,9 +163,9 @@
          <ComboBox prefHeight="0.0" prefWidth="182.0" promptText="Seleccionar rango horario" visibleRowCount="3" GridPane.columnIndex="2" GridPane.rowIndex="3">
             <items>
                <FXCollections fx:factory="observableArrayList">
-                  <String fx:value="06 - 09" />
-                  <String fx:value="18 - 21" />
-                  <String fx:value="21 - 06" />
+                  <String fx:value="06 - 09 hs" />
+                  <String fx:value="18 - 21 hs" />
+                  <String fx:value="21 - 06 hs" />
                </FXCollections>
             </items>
             <cursor>
