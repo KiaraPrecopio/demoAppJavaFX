@@ -2,10 +2,9 @@ package org.prueba.demoappjavafx;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.DateCell;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
 
@@ -24,6 +23,19 @@ public class HelloController {
     @FXML
     private GridPane gridPane;
 
+    @FXML
+    private TextField hsDiariasField;
+
+    @FXML
+    private TextField hsExtrasField;
+
+    @FXML
+    private ComboBox<String> proyectoComboBox;
+
+
+    private LocalDate selectedDate;
+    private String selectedProject;
+
     private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public void initialize() {
@@ -35,6 +47,7 @@ public class HelloController {
         datePicker.valueProperty().addListener(new ChangeListener<LocalDate>() {
             @Override
             public void changed(ObservableValue<? extends LocalDate> observable, LocalDate oldValue, LocalDate newValue) {
+                selectedDate = newValue;
                 updateGridPaneWithSelectedDate(newValue);
             }
         });
@@ -59,6 +72,7 @@ public class HelloController {
 
             labelToUpdate.setText(labelText);
         }
+
     }
 
     private Callback<DatePicker, DateCell> createDayCellFactory() {
@@ -79,6 +93,37 @@ public class HelloController {
             }
         };
     }
+
+    @FXML
+    private void confirmarHoras() {
+
+        LocalDate selectedDate = datePicker.getValue();
+        String selectedProyecto = proyectoComboBox.getValue();
+
+        String horasDiarias = hsDiariasField.getText();
+        String horasExtras = hsExtrasField.getText();
+
+        if (horasDiarias.isEmpty() || horasExtras.isEmpty()) {
+            System.out.println("Por favor, ingrese valores para horas diarias y extras.");
+            return;
+        }
+
+        System.out.println("Fecha seleccionada: " + selectedDate);
+        System.out.println("Proyecto seleccionado: " + selectedProyecto);
+        System.out.println("Horas diarias (antes de convertir): " + horasDiarias);
+        System.out.println("Horas extras (antes de convertir): " + horasExtras);
+
+        try {
+            int horasDiariasInt = Integer.parseInt(horasDiarias);
+            int horasExtrasInt = Integer.parseInt(horasExtras);
+
+            System.out.println("Horas diarias (después de convertir): " + horasDiariasInt);
+            System.out.println("Horas extras (después de convertir): " + horasExtrasInt);
+        } catch (NumberFormatException e) {
+            System.out.println("Error al convertir a enteros: " + e.getMessage());
+        }
+    }
+
 }
 
 
