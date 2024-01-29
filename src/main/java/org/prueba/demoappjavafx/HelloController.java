@@ -3,17 +3,47 @@ package org.prueba.demoappjavafx;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.control.DateCell;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.util.Callback;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAdjusters;
 import java.util.List;
 
 public class HelloController {
 
+    @FXML
+    private DatePicker datePicker;
+
+    public void initialize() {
+        datePicker.setDayCellFactory(createDayCellFactory());
+    }
+    private Callback<DatePicker, DateCell> createDayCellFactory() {
+        return datePicker -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (item != null) {
+                    LocalDate currentDate = LocalDate.now();
+                    LocalDate startOfWeek = currentDate.with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
+                    LocalDate endOfWeek = currentDate.with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY));
+
+                    // Personalizar la apariencia de los días de la semana actual
+                    if (item.isAfter(startOfWeek.minusDays(1)) && item.isBefore(endOfWeek.plusDays(1))) {
+                        setStyle("-fx-background-color: lightblue;");
+                    }
+                }
+            }
+        };
+    }
+/*
     private static final int NUM_COLUMNS = 5;
     private static final int NUM_ROWS = 4;
     private static final int COL_TOTAL_WEEKLY = 6;
@@ -134,5 +164,5 @@ public class HelloController {
     private void handleNumberFormatError(int col, int row) {
         throw new NumberFormatException("Error de formato en el TextField en la columna " + col + ", fila " + row);
     }
-
+*/
 }
