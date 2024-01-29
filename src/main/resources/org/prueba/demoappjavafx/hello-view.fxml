@@ -25,7 +25,7 @@
                         <Insets />
                     </VBox.margin>
                 </Label>
-                <ComboBox fx:id="proyectoComboBox" prefHeight="25.0" prefWidth="204.0" promptText="Seleccionar proyecto">
+                <ComboBox fx:id="proyectComboBox" prefHeight="25.0" prefWidth="204.0" promptText="Seleccionar proyecto">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="Proyecto 1" />
@@ -113,21 +113,17 @@
                 </font>
             </Label>
 
-            <TextField fx:id="hsDiariasField" style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="hsExtrasField" style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="forloughField" layoutX="149.0" layoutY="70.0" style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="hsDiariasRestantesField" style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-
             <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #498dc9;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                 <font>
                     <Font name="HoloLens MDL2 Assets" size="12.0" />
                 </font>
             </Label>
 
-            <TextField style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="hsDiariasField" style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField layoutX="149.0" layoutY="70.0" style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
-            <TextField style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="hsExtrasField" style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
             <Label alignment="CENTER" layoutX="149.0" layoutY="39.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #2C3032;" GridPane.columnIndex="2" GridPane.rowIndex="5">
                 <font>
                     <Font name="HoloLens MDL2 Assets" size="12.0" />
@@ -148,7 +144,7 @@
                     <Font name="HoloLens MDL2 Assets" size="12.0" />
                 </font>
             </Label>
-            <Button fx:id="confirmarHorasButton" onAction="#confirmarHoras" contentDisplay="TOP" mnemonicParsing="false" prefHeight="25.0" prefWidth="249.0" style="-fx-background-color: #4c82b3;" text="Confirmar horas" GridPane.columnIndex="2">
+            <Button fx:id="confirmarHorasButton" onAction="#confirmHours" contentDisplay="TOP" mnemonicParsing="false" prefHeight="25.0" prefWidth="249.0" style="-fx-background-color: #4c82b3;" text="Confirmar horas" GridPane.columnIndex="2">
                 <GridPane.margin>
                     <Insets left="40.0" top="50.0" />
                 </GridPane.margin>

@@ -2,7 +2,6 @@ package org.prueba.demoappjavafx;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
@@ -30,8 +29,10 @@ public class HelloController {
     private TextField hsExtrasField;
 
     @FXML
-    private ComboBox<String> proyectoComboBox;
+    private TextField hsDiariasRestantesField;
 
+    @FXML
+    private ComboBox<String> proyectComboBox;
 
     private LocalDate selectedDate;
     private String selectedProject;
@@ -95,10 +96,9 @@ public class HelloController {
     }
 
     @FXML
-    private void confirmarHoras() {
-
+    private void confirmHours() {
         LocalDate selectedDate = datePicker.getValue();
-        String selectedProyecto = proyectoComboBox.getValue();
+        String selectedProyecto = proyectComboBox.getValue();
 
         String horasDiarias = hsDiariasField.getText();
         String horasExtras = hsExtrasField.getText();
@@ -108,27 +108,26 @@ public class HelloController {
             return;
         }
 
+        if (isIntegerNumber(horasDiarias) || isIntegerNumber(horasExtras)) {
+            System.out.println("Por favor, ingrese valores numéricos para horas diarias y extras.");
+            return;
+        }
+
         System.out.println("Fecha seleccionada: " + selectedDate);
         System.out.println("Proyecto seleccionado: " + selectedProyecto);
-        System.out.println("Horas diarias (antes de convertir): " + horasDiarias);
-        System.out.println("Horas extras (antes de convertir): " + horasExtras);
-
-        try {
-            int horasDiariasInt = Integer.parseInt(horasDiarias);
-            int horasExtrasInt = Integer.parseInt(horasExtras);
-
-            System.out.println("Horas diarias (después de convertir): " + horasDiariasInt);
-            System.out.println("Horas extras (después de convertir): " + horasExtrasInt);
-        } catch (NumberFormatException e) {
-            System.out.println("Error al convertir a enteros: " + e.getMessage());
-        }
+        System.out.println("Horas diarias: " + horasDiarias);
+        System.out.println("Horas extras: " + horasExtras);
     }
 
+    private boolean isIntegerNumber(String texto) {
+        try {
+            Integer.parseInt(texto);
+            return false;
+        } catch (NumberFormatException e) {
+            return true;
+        }
+    }
 }
-
-
-
-
 
 
 /*
