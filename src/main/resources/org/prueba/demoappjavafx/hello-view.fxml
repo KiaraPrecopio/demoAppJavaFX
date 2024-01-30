@@ -122,8 +122,8 @@
             <Spinner fx:id="hsDiariasField" style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField layoutX="149.0" layoutY="70.0" style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
-            <TextField fx:id="hsExtrasField" style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="forloughField" style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Spinner fx:id="hsExtrasField" style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Spinner fx:id="forloughField" style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
 
             <Label alignment="CENTER" layoutX="149.0" layoutY="39.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: #2C3032;" GridPane.columnIndex="2" GridPane.rowIndex="5">
