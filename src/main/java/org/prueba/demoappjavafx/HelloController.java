@@ -1,51 +1,150 @@
 package org.prueba.demoappjavafx;
 
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-
+import javafx.util.Callback;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
+import java.time.temporal.TemporalAdjusters;
+import java.util.Locale;
 
 public class HelloController {
 
     @FXML
+    private Spinner<Integer> dailyHours;
+    @FXML
+    private Spinner<Integer> extraHours;
+    @FXML
+    private Spinner<Integer> fHours;
+    @FXML
+    private DatePicker datePicker;
+    @FXML
     private GridPane gridPane;
+    @FXML
+    private Label dateLabel;
+
+    private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public void initialize() {
-        if (gridPane != null) {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            LocalDate currentDate = LocalDate.now();
+        datePicker.setDayCellFactory(createDayCellFactory());
 
-            LocalDate startOfWeek = getFirstDayOfWeek(currentDate);
+        setupDatePickerListener();
 
-            for (int i = 0; i < 5; i++) {
-                Label label = createFormattedLabel(startOfWeek, formatter);
-                gridPane.add(label, i + 1, 0);
-                startOfWeek = startOfWeek.plusDays(1);
+        spinnerDailyHours();
+        spinnerExtraHours();
+        spinnerFHours();
+    }
+
+
+
+    private void setupDatePickerListener() {
+        datePicker.valueProperty().addListener((observable, oldValue, newValue)
+                -> updateGridPaneWithSelectedDate(newValue));
+    }
+
+    private void updateGridPaneWithSelectedDate(LocalDate newDate) {
+        int dateLabelColumnIndex = 1;
+        int dateLabelRowIndex = 1;
+
+        Label dayLabel = (Label) gridPane.getChildren().stream()
+                .filter(node -> GridPane.getColumnIndex(node) != null && GridPane.getColumnIndex(node) == dateLabelColumnIndex
+                        && GridPane.getRowIndex(node) != null && GridPane.getRowIndex(node) == dateLabelRowIndex)
+                .findFirst()
+                .orElse(null);
+
+        /*Label dateLabel = (Label) gridPane.getChildren().stream()
+                .filter(node -> GridPane.getColumnIndex(node) != null && GridPane.getColumnIndex(node) == dateLabelColumnIndex
+                        && GridPane.getRowIndex(node) != null && GridPane.getRowIndex(node) == dateLabelRowIndex)
+                .findFirst()
+                .orElse(null);*/
+
+        if (dayLabel != null && dateLabel != null) {
+            String date = newDate.format(dateFormatter);
+            String day = newDate.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.getDefault());
+
+            dayLabel.setText(day);
+            dateLabel.setText(date);
+        }
+    }
+
+
+    /*private void updateGridPaneWithSelectedDate(LocalDate newDate) {
+        int columnIndex = 1;
+        int rowIndex = 1;
+
+        Label labelToUpdate = (Label) gridPane.getChildren().stream()
+                .filter(node -> GridPane.getColumnIndex(node) != null && GridPane.getColumnIndex(node) == columnIndex
+                        && GridPane.getRowIndex(node) != null && GridPane.getRowIndex(node) == rowIndex)
+                .findFirst()
+                .orElse(null);
+
+        if (labelToUpdate != null) {
+            String formattedDate = newDate.format(dateFormatter);
+
+            String dayOfWeek = newDate.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.getDefault());
+
+            String labelText = dayOfWeek + " - " + formattedDate;
+
+            labelToUpdate.setText(labelText);
+        }
+    }*/
+
+    // Método para crear un DateCell que pinte de color los días de la semana actual
+    private Callback<DatePicker, DateCell> createDayCellFactory() {
+        return datePicker -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (item != null) {
+                    LocalDate currentDate = LocalDate.now();
+                    LocalDate startOfWeek = currentDate.with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
+                    LocalDate endOfWeek = currentDate.with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY));
+
+                    if (item.isAfter(startOfWeek.minusDays(1)) && item.isBefore(endOfWeek.plusDays(1))) {
+                        setStyle("-fx-background-color: lightblue;");
+                    }
+                }
             }
-        } else {
-            handleNullGridPane();
-        }
+        };
+    }
+    private void spinnerDailyHours() {
+        SpinnerValueFactory<Integer> valueDailyHours =
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 8, 0);
+        dailyHours.setValueFactory(valueDailyHours);
+
+        dailyHours.editorProperty().getValue().textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                dailyHours.getValueFactory().setValue(0);
+            }
+        });
+    }
+    private void spinnerExtraHours() {
+        SpinnerValueFactory.IntegerSpinnerValueFactory valueFactory =
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, Integer.MAX_VALUE, 0);
+        extraHours.setValueFactory(valueFactory);
+
+        extraHours.editorProperty().getValue().textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                extraHours.getValueFactory().setValue(0);
+            }
+        });
+    }
+    private void spinnerFHours() {
+        SpinnerValueFactory<Integer> valueFHours =
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 8, 0);
+        fHours.setValueFactory(valueFHours);
+
+        fHours.editorProperty().getValue().textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                fHours.getValueFactory().setValue(0);
+            }
+        });
     }
 
-    private LocalDate getFirstDayOfWeek(LocalDate currentDate) {
-        LocalDate startOfWeek = currentDate;
-        while (startOfWeek.getDayOfWeek() != DayOfWeek.MONDAY) {
-            startOfWeek = startOfWeek.minusDays(1);
-        }
-        return startOfWeek;
-    }
 
-    private Label createFormattedLabel(LocalDate date, DateTimeFormatter formatter) {
-        Label label = new Label(date.format(formatter));
-        label.setAlignment(Pos.CENTER);
-        return label;
-    }
 
-    private void handleNullGridPane() {
-        System.err.println("gridPane is null. Make sure it is properly initialized or injected.");
-    }
 }
