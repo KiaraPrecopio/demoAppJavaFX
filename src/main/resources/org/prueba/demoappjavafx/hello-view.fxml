@@ -119,7 +119,7 @@
                 </font>
             </Label>
 
-            <TextField fx:id="hsDiariasField" style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Spinner fx:id="hsDiariasField" style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField layoutX="149.0" layoutY="70.0" style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
             <TextField fx:id="hsExtrasField" style="-fx-background-color: #E7E7E7;" GridPane.columnIndex="1" GridPane.rowIndex="3" />

@@ -23,7 +23,7 @@ public class HelloController {
     private GridPane gridPane;
 
     @FXML
-    private TextField hsDiariasField;
+    private Spinner<Integer> hsDiariasField;
 
     @FXML
     private TextField hsExtrasField;
@@ -107,7 +107,7 @@ public class HelloController {
         String selectedProyecto = proyectComboBox.getValue();
         String selectedRange = rangeField.getValue();
 
-        String horasDiarias = hsDiariasField.getText();
+        Integer horasDiarias = hsDiariasField.getValue();
         String horasExtras = hsExtrasField.getText();
         String forloughHours = forloughField.getText();
         String commentsHours = commentField.getText();
@@ -116,12 +116,12 @@ public class HelloController {
          * Si está dispuesto por defecto el 0 no habría que hacer estas validaciones
          */
 
-        if (horasDiarias.isEmpty() || horasExtras.isEmpty()) {
-            System.out.println("Por favor, ingrese valores para horas diarias y extras.");
+        if (horasExtras.isEmpty()) {
+            System.out.println("Por favor, ingrese valores para horas extras.");
             return;
         }
 
-        if (isIntegerNumber(horasDiarias) || isIntegerNumber(horasExtras)) {
+        if (isIntegerNumber(horasExtras)) {
             System.out.println("Por favor, ingrese valores numéricos para horas diarias y extras.");
             return;
         }
