@@ -26,6 +26,27 @@ public class HelloController {
     @FXML
     private Label dateLabel;
 
+    @FXML
+    private Spinner<Integer> hsDiariasField;
+
+    @FXML
+    private Spinner<Integer> hsExtrasField;
+
+    @FXML
+    private Spinner<Integer> forloughField;
+
+    @FXML
+    private TextField commentField;
+
+    @FXML
+    private ComboBox<String> proyectComboBox;
+
+    @FXML
+    private ComboBox<String> rangeField;
+
+    private LocalDate selectedDate;
+    private String selectedProject;
+
     private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public void initialize() {
@@ -41,8 +62,12 @@ public class HelloController {
 
 
     private void setupDatePickerListener() {
-        datePicker.valueProperty().addListener((observable, oldValue, newValue)
-                -> updateGridPaneWithSelectedDate(newValue));
+        datePicker.valueProperty().addListener(new ChangeListener<LocalDate>() {
+            @Override
+            public void changed(ObservableValue<? extends LocalDate> observable, LocalDate oldValue, LocalDate newValue) {
+                updateGridPaneWithSelectedDate(newValue);
+            }
+        });
     }
 
     private void updateGridPaneWithSelectedDate(LocalDate newDate) {
@@ -132,6 +157,25 @@ public class HelloController {
                 extraHours.getValueFactory().setValue(0);
             }
         });
+    @FXML
+    private void confirmHours() {
+        LocalDate selectedDate = datePicker.getValue();
+        String selectedProyecto = proyectComboBox.getValue();
+        String selectedRange = rangeField.getValue();
+
+        Integer horasDiarias = hsDiariasField.getValue();
+        Integer horasExtras = hsExtrasField.getValue();
+        Integer forloughHours = forloughField.getValue();
+        String commentsHours = commentField.getText();
+
+        System.out.println("Fecha seleccionada: " + selectedDate);
+        System.out.println("Proyecto seleccionado: " + selectedProyecto);
+        System.out.println("Horas diarias: " + horasDiarias);
+        System.out.println("Horas extras: " + horasExtras);
+        System.out.println("Rango de horas extra: " + selectedRange);
+        System.out.println("Horas forlough: " + forloughHours);
+        System.out.println("Comentarios: " + commentsHours);
+        System.out.println();
     }
     private void spinnerFHours() {
         SpinnerValueFactory<Integer> valueFHours =
