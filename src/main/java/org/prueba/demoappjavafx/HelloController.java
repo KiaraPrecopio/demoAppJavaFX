@@ -29,10 +29,16 @@ public class HelloController {
     private TextField hsExtrasField;
 
     @FXML
-    private TextField hsDiariasRestantesField;
+    private TextField forloughField;
+
+    @FXML
+    private TextField commentField;
 
     @FXML
     private ComboBox<String> proyectComboBox;
+
+    @FXML
+    private ComboBox<String> rangeField;
 
     private LocalDate selectedDate;
     private String selectedProject;
@@ -99,9 +105,16 @@ public class HelloController {
     private void confirmHours() {
         LocalDate selectedDate = datePicker.getValue();
         String selectedProyecto = proyectComboBox.getValue();
+        String selectedRange = rangeField.getValue();
 
         String horasDiarias = hsDiariasField.getText();
         String horasExtras = hsExtrasField.getText();
+        String forloughHours = forloughField.getText();
+        String commentsHours = commentField.getText();
+
+        /** TODO
+         * Si está dispuesto por defecto el 0 no habría que hacer esta validación
+         */
 
         if (horasDiarias.isEmpty() || horasExtras.isEmpty()) {
             System.out.println("Por favor, ingrese valores para horas diarias y extras.");
@@ -117,6 +130,9 @@ public class HelloController {
         System.out.println("Proyecto seleccionado: " + selectedProyecto);
         System.out.println("Horas diarias: " + horasDiarias);
         System.out.println("Horas extras: " + horasExtras);
+        System.out.println("Rango de horas extra: " + selectedRange);
+        System.out.println("Horas forlough: " + forloughHours);
+        System.out.println("Comentarios: " + commentsHours);
     }
 
     private boolean isIntegerNumber(String texto) {
