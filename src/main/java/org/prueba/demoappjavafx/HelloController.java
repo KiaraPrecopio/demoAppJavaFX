@@ -4,42 +4,38 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
-import javafx.util.converter.IntegerStringConverter;
-
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Locale;
-import java.util.function.Consumer;
 
 public class HelloController {
 
     @FXML
-    private TextField maxHours;
+    private Spinner<Integer> dailyHours;
     @FXML
-    private TextField fHours;
+    private Spinner<Integer> extraHours;
+    @FXML
+    private Spinner<Integer> fHours;
     @FXML
     private DatePicker datePicker;
     @FXML
     private GridPane gridPane;
     @FXML
-    private Label countdownHours;
-    private int fHoursValue;
-    private int maxHoursValue;
+    private Label dateLabel;
 
     private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public void initialize() {
-        maxHoursValue = 8;
-        initializeCountdownHours();
-        maxDailyHours();
-        fHoursTotal();
         datePicker.setDayCellFactory(createDayCellFactory());
+
         setupDatePickerListener();
 
-
+        spinnerDailyHours();
+        spinnerExtraHours();
+        spinnerFHours();
     }
 
 
@@ -50,6 +46,32 @@ public class HelloController {
     }
 
     private void updateGridPaneWithSelectedDate(LocalDate newDate) {
+        int dateLabelColumnIndex = 1;
+        int dateLabelRowIndex = 1;
+
+        Label dayLabel = (Label) gridPane.getChildren().stream()
+                .filter(node -> GridPane.getColumnIndex(node) != null && GridPane.getColumnIndex(node) == dateLabelColumnIndex
+                        && GridPane.getRowIndex(node) != null && GridPane.getRowIndex(node) == dateLabelRowIndex)
+                .findFirst()
+                .orElse(null);
+
+        /*Label dateLabel = (Label) gridPane.getChildren().stream()
+                .filter(node -> GridPane.getColumnIndex(node) != null && GridPane.getColumnIndex(node) == dateLabelColumnIndex
+                        && GridPane.getRowIndex(node) != null && GridPane.getRowIndex(node) == dateLabelRowIndex)
+                .findFirst()
+                .orElse(null);*/
+
+        if (dayLabel != null && dateLabel != null) {
+            String date = newDate.format(dateFormatter);
+            String day = newDate.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.getDefault());
+
+            dayLabel.setText(day);
+            dateLabel.setText(date);
+        }
+    }
+
+
+    /*private void updateGridPaneWithSelectedDate(LocalDate newDate) {
         int columnIndex = 1;
         int rowIndex = 1;
 
@@ -68,7 +90,7 @@ public class HelloController {
 
             labelToUpdate.setText(labelText);
         }
-    }
+    }*/
 
     // Método para crear un DateCell que pinte de color los días de la semana actual
     private Callback<DatePicker, DateCell> createDayCellFactory() {
@@ -89,51 +111,39 @@ public class HelloController {
             }
         };
     }
+    private void spinnerDailyHours() {
+        SpinnerValueFactory<Integer> valueDailyHours =
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 8, 0);
+        dailyHours.setValueFactory(valueDailyHours);
 
-    private void maxDailyHours() {
-        TextFormatter<Integer> formatter = createTextFormatter(maxHoursValue -> {
-            if (maxHoursValue >= 0 && maxHoursValue <= 8) {
-                this.maxHoursValue = maxHoursValue;
-                updateCountdownHours();
+        dailyHours.editorProperty().getValue().textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                dailyHours.getValueFactory().setValue(0);
             }
         });
-
-        maxHours.setTextFormatter(formatter);
     }
+    private void spinnerExtraHours() {
+        SpinnerValueFactory.IntegerSpinnerValueFactory valueFactory =
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, Integer.MAX_VALUE, 0);
+        extraHours.setValueFactory(valueFactory);
 
-    private void fHoursTotal() {
-        TextFormatter<Integer> formatter = createTextFormatter(fHoursValue -> {
-            this.fHoursValue = fHoursValue;
-            updateCountdownHours();
-        });
-
-        fHours.setTextFormatter(formatter);
-    }
-
-    private void initializeCountdownHours() {
-        updateCountdownHours();
-    }
-
-    private void updateCountdownHours() {
-        int remainingHours = maxHoursValue - fHoursValue;
-        countdownHours.setText(String.valueOf(Math.max(remainingHours, 0)));
-    }
-
-    private TextFormatter<Integer> createTextFormatter(Consumer<Integer> valueChangedCallback) {
-        return new TextFormatter<>(new IntegerStringConverter(), 0, change -> {
-            String newText = change.getControlNewText();
-            if (newText.matches("\\d*")) {
-                int newValue = newText.isEmpty() ? 0 : Integer.parseInt(newText);
-                valueChangedCallback.accept(newValue);
-                return change;
+        extraHours.editorProperty().getValue().textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                extraHours.getValueFactory().setValue(0);
             }
-            return null;
         });
     }
+    private void spinnerFHours() {
+        SpinnerValueFactory<Integer> valueFHours =
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 8, 0);
+        fHours.setValueFactory(valueFHours);
 
-
-
-
+        fHours.editorProperty().getValue().textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                fHours.getValueFactory().setValue(0);
+            }
+        });
+    }
 
 
 
