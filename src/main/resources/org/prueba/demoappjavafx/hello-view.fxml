@@ -25,7 +25,7 @@
                         <Insets />
                     </VBox.margin>
                 </Label>
-                <ComboBox prefHeight="25.0" prefWidth="204.0" promptText="Seleccionar proyecto">
+                <ComboBox fx:id="proyectComboBox" prefHeight="25.0" prefWidth="204.0" promptText="Seleccionar proyecto">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="Proyecto 1" />
@@ -35,13 +35,13 @@
                             <String fx:value="Proyecto 5" />
                         </FXCollections>
                     </items>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
                 </ComboBox>
-            <HBox.margin>
-               <Insets left="-10.0" />
-            </HBox.margin>
+                <HBox.margin>
+                    <Insets left="-10.0" />
+                </HBox.margin>
             </VBox>
             <VBox alignment="CENTER" prefHeight="150.0" prefWidth="151.0" HBox.hgrow="ALWAYS">
                 <ImageView fitHeight="114.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
